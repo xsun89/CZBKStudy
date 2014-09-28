@@ -1,5 +1,10 @@
 #ifndef _CFG_H_
 #define _CFG_H_
-int readCfg(char *fileName, char *key, int keyLen, char *value, int valueLen);
-int writeCfg(char *fileName, char *key, int keyLen, char *value, int valueLen);
+
+#define  LineMaxLen 2048
+#define  KeyMaxLen 64
+
+int readCfg(char *pFileName, char *pKey, char *pValue, int *pValueLen);
+int writeCfg(char *pFileName, char *pKey, char *pValue, int valueLen);
+
 #endif // !_CFG_H_
