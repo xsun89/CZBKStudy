@@ -5,6 +5,10 @@ VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConfigFile", "ConfigFile\ConfigFile.vcxproj", "{2E7A192B-A641-4A5F-B6DB-A377A2E9617B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Libary", "Libary\Libary.vcxproj", "{51414C33-0015-4278-A5C8-834153C9A1C0}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LibaryTest", "LibaryTest\LibaryTest.vcxproj", "{77E2797B-2729-4A5D-97F1-569EE22AE051}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -15,6 +19,14 @@ Global
 		{2E7A192B-A641-4A5F-B6DB-A377A2E9617B}.Debug|Win32.Build.0 = Debug|Win32
 		{2E7A192B-A641-4A5F-B6DB-A377A2E9617B}.Release|Win32.ActiveCfg = Release|Win32
 		{2E7A192B-A641-4A5F-B6DB-A377A2E9617B}.Release|Win32.Build.0 = Release|Win32
+		{51414C33-0015-4278-A5C8-834153C9A1C0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{51414C33-0015-4278-A5C8-834153C9A1C0}.Debug|Win32.Build.0 = Debug|Win32
+		{51414C33-0015-4278-A5C8-834153C9A1C0}.Release|Win32.ActiveCfg = Release|Win32
+		{51414C33-0015-4278-A5C8-834153C9A1C0}.Release|Win32.Build.0 = Release|Win32
+		{77E2797B-2729-4A5D-97F1-569EE22AE051}.Debug|Win32.ActiveCfg = Debug|Win32
+		{77E2797B-2729-4A5D-97F1-569EE22AE051}.Debug|Win32.Build.0 = Debug|Win32
+		{77E2797B-2729-4A5D-97F1-569EE22AE051}.Release|Win32.ActiveCfg = Release|Win32
+		{77E2797B-2729-4A5D-97F1-569EE22AE051}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
