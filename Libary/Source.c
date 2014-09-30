@@ -54,7 +54,7 @@ int cltSocketSend(void *handle /*in*/, unsigned char *buf /*in*/, int buflen /*i
 }
 
 __declspec(dllexport)
-int cltSocketRev(void *handle /*in*/, unsigned char *buf /*in*/, int *buflen /*in out*/)
+int cltSocketRev(void *handle /*in*/, unsigned char **buf /*in*/, int *buflen /*in out*/)
 {
 	int ret = 0;
 	SCK_HANDLE *sh = NULL;
@@ -64,14 +64,34 @@ int cltSocketRev(void *handle /*in*/, unsigned char *buf /*in*/, int *buflen /*i
 		return ret;
 	}
 	sh = handle;
-	memcpy(buf, sh->pBuf, sh->buflen);
+	unsigned char *tmp = (unsigned char*)malloc(sh->buflen*sizeof(char));
+	memcpy(tmp, sh->pBuf, sh->buflen);
+	*buf = tmp;
 	*buflen = sh->buflen;
 
 	return ret;
 }
 
 __declspec(dllexport)
-int cltSocketDestory(void *handle/*in*/)
+int cltSocketFreeBuf(unsigned char **buf)
+{
+	int ret = 0;
+	if (buf == NULL)
+	{
+		ret = -1;
+		return ret;
+	}
+	
+	if (*buf != NULL)
+		free(*buf);
+
+	*buf = NULL;
+
+	return ret;
+}
+
+__declspec(dllexport)
+int cltSocketDestory(void **handle/*in*/)
 {
 	int ret = 0;
 	SCK_HANDLE *sh = NULL;
@@ -81,10 +101,17 @@ int cltSocketDestory(void *handle/*in*/)
 		return ret;
 	}
 
-	sh = (SCK_HANDLE *)handle;
+	sh = (SCK_HANDLE *) *handle;
+	if (sh == NULL)
+	{
+		ret = -2;
+		return ret;
+	}
 	if (sh->pBuf != NULL)
 		free(sh->pBuf);
 
 	free(sh);
+
+	*handle = NULL;
 	return ret;
 }

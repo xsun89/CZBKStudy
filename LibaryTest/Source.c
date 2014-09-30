@@ -13,31 +13,36 @@ int main()
 	ret = cltSocketInit(&handle) ;
 	if (ret != 0)
 	{
-		ITCAST_LOG(__FILE__, __LINE__, 4, 0, "err on cltSocketInit()\n");
+		ITCAST_LOG(__FILE__, __LINE__, LogLevel[4], 0, "err on cltSocketInit()\n");
 		goto End;
 	}
 	strcpy(buf, "abcdefghijklmn");
 	ret = cltSocketSend(handle, buf, strlen(buf));
 	if (ret != 0)
 	{
-		ITCAST_LOG(__FILE__, __LINE__, 4, 0, "err on cltSocketSend()\n");
+		ITCAST_LOG(__FILE__, __LINE__, LogLevel[4], 0, "err on cltSocketSend()\n");
 		goto End;
 	}
 
-	char retBuf[30];
+	unsigned char *retBuf = NULL;
 	int retBufLen = 0;
-	memset(retBuf, 0, sizeof(retBuf));
-	ret = cltSocketRev(handle, retBuf, &retBufLen);
+	ret = cltSocketRev(handle, &retBuf, &retBufLen);
 	if (ret != 0)
 	{
-		ITCAST_LOG(__FILE__, __LINE__, 4, 0, "err on cltSocketSend()\n");
+		ITCAST_LOG(__FILE__, __LINE__, LogLevel[4], 0, "err on cltSocketSend()\n");
 		goto End;
 	}
 	printf("retBuf = [%s] and length = [%d]\n", retBuf, retBufLen);
+	ret = cltSocketFreeBuf(&retBuf);
+	if (ret != 0)
+	{
+		ITCAST_LOG(__FILE__, __LINE__, LogLevel[4], 0, "err on cltSocketFreeBuf()\n");
+		goto End;
+	}
 End:
 	if (handle != NULL)
 	{
-		cltSocketDestory(handle/*in*/);
+		cltSocketDestory(&handle/*in*/);
 	}
 	system("pause");
 

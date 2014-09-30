@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Libary", "Libary\Libary.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LibaryTest", "LibaryTest\LibaryTest.vcxproj", "{77E2797B-2729-4A5D-97F1-569EE22AE051}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SortTwoTypeArray", "SortTwoTypeArray\SortTwoTypeArray.vcxproj", "{F7EEFD44-E93C-45B0-A607-554C33EFD657}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -27,6 +29,10 @@ Global
 		{77E2797B-2729-4A5D-97F1-569EE22AE051}.Debug|Win32.Build.0 = Debug|Win32
 		{77E2797B-2729-4A5D-97F1-569EE22AE051}.Release|Win32.ActiveCfg = Release|Win32
 		{77E2797B-2729-4A5D-97F1-569EE22AE051}.Release|Win32.Build.0 = Release|Win32
+		{F7EEFD44-E93C-45B0-A607-554C33EFD657}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F7EEFD44-E93C-45B0-A607-554C33EFD657}.Debug|Win32.Build.0 = Debug|Win32
+		{F7EEFD44-E93C-45B0-A607-554C33EFD657}.Release|Win32.ActiveCfg = Release|Win32
+		{F7EEFD44-E93C-45B0-A607-554C33EFD657}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
