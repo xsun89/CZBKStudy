@@ -53,6 +53,7 @@ int cltSocketSend(void *handle /*in*/, unsigned char *buf /*in*/, int buflen /*i
 	return ret;
 }
 
+__declspec(dllexport)
 int cltSocketRev(void *handle /*in*/, unsigned char *buf /*in*/, int *buflen /*in out*/)
 {
 	int ret = 0;

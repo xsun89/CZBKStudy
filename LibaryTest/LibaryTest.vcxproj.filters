@@ -18,9 +18,15 @@
     <ClInclude Include="socketclientdll.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="itcastlog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="itcastlog.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -79,9 +79,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="itcastlog.h" />
     <ClInclude Include="socketclientdll.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="itcastlog.c" />
     <ClCompile Include="Source.c" />
   </ItemGroup>
   <ItemGroup>
