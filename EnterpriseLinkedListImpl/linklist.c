@@ -53,13 +53,14 @@ int LinkList_Length(LinkList* list)
 int LinkList_Insert(LinkList* list, LinkListNode* node, int pos)
 {
 	TLinkList *lst = list;
+	int i = 0;
 	if (lst == NULL || node == NULL || pos <0)
 	{
 		return -1;
 	}
 	LinkListNode *current = NULL;
 	current = (LinkListNode *)lst;
-	for (int i = 0; (i<pos) && (current->next != NULL); i++); 
+	for (i = 0; (i<pos) && (current->next != NULL); i++) 
 	{
 		current = current->next;
 	}
@@ -75,16 +76,16 @@ LinkListNode* LinkList_Get(LinkList* list, int pos)
 	TLinkList *lst = list;
 	if (lst == NULL || pos < 0 || pos > lst->length)
 	{
-		return -1;
+		return NULL;
 	}
 	LinkListNode *current = NULL;
 	current = (LinkListNode *)lst;
-	for (int i = 0; i < pos; i++);
+	for (int i = 0; i < pos; i++)
 	{
 		current = current->next;
 	}
 
-	return current->next;
+	return (LinkListNode *)current->next;
 }
 
 LinkListNode* LinkList_Delete(LinkList* list, int pos)
@@ -92,11 +93,11 @@ LinkListNode* LinkList_Delete(LinkList* list, int pos)
 	TLinkList *lst = list;
 	if (lst == NULL || pos < 0 || pos > lst->length)
 	{
-		return -1;
+		return NULL;
 	}
 	LinkListNode *current = NULL;
 	current = (LinkListNode *)lst;
-	for (int i = 0; i < pos; i++);
+	for (int i = 0; i < pos; i++)
 	{
 		current = current->next;
 	}
