@@ -3,12 +3,21 @@
 #include "stdio.h"
 #include "string.h"
 
+typedef int(*EncData)(unsigned char *inData, int inDataLen, unsigned char *outData, int *outDataLen, void *Ref, int RefLen);
+typedef int(*DecData)(unsigned char *inData, int inDataLen, unsigned char *outData, int *outDataLen, void *Ref, int RefLen);
+
 typedef struct _SCK_HANDLE {
 	char version[16];
 	char serverip[16];
 	int serverport;
-	char *pBuf;
+	unsigned char *pBuf;
 	int buflen;
+	EncData encData;
+	void *encRef;
+	int encRefLen;
+	DecData decData;
+	void *decRef;
+	int decRefLen;
 }SCK_HANDLE;
 
 __declspec(dllexport)
@@ -17,6 +26,7 @@ int cltSocketInit(void **handle)
 	int ret = 0;
 	SCK_HANDLE *sh = NULL;
 	sh = (SCK_HANDLE*)malloc(sizeof(SCK_HANDLE));
+	memset(sh, 0, sizeof(SCK_HANDLE));
 	if (sh == NULL)
 	{
 		ret = -1;
@@ -42,14 +52,27 @@ int cltSocketSend(void *handle /*in*/, unsigned char *buf /*in*/, int buflen /*i
 	}
 
 	sh = (SCK_HANDLE *)handle;
-	sh->pBuf = (char*)malloc(buflen*sizeof(char));
+	sh->pBuf = (unsigned char*)malloc(buflen*sizeof(unsigned char)+ 128);
+	memset(sh->pBuf, 0, buflen*sizeof(unsigned char) + 128);
 	if (sh->pBuf == NULL)
 	{
 		ret = -2;
 		return ret;
 	}
-	memcpy(sh->pBuf, buf, buflen);
-	sh->buflen = buflen;
+	if (sh->encData != NULL)
+	{
+		ret = sh->encData(buf, buflen, sh->pBuf, &sh->buflen, sh->encRef, sh->encRefLen);
+		if (ret != 0)
+		{
+			return ret;
+		}
+
+	}
+	else
+	{
+		memcpy(sh->pBuf, buf, buflen);
+		sh->buflen = buflen;
+	}
 	return ret;
 }
 
@@ -110,8 +133,39 @@ int cltSocketDestory(void **handle/*in*/)
 	if (sh->pBuf != NULL)
 		free(sh->pBuf);
 
+	if (sh->encRef != NULL)
+		free(sh->encRef);
+
+	if (sh->decRef != NULL)
+		free(sh->decRef);
+
 	free(sh);
 
 	*handle = NULL;
 	return ret;
+}
+
+__declspec(dllexport)
+int clitSocket_setEncFunc(void *handle, EncData encDataCallback, void *ref, int refLen)
+{
+	SCK_HANDLE *sh = NULL;
+	sh = handle;
+	if (sh == NULL)
+	{
+		return -1;
+	}
+
+	sh->encData = encDataCallback;
+	if (refLen > 0)
+	{
+		sh->encRef = (void *)malloc(refLen);
+		if (sh->encRef == NULL)
+		{
+			return -2;
+		}
+		memcpy(sh->encRef, ref, refLen);
+		sh->encRefLen = refLen;
+	}
+
+	return 0;
 }

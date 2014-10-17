@@ -5,6 +5,13 @@
 #include "socketclientdll.h"
 #include "itcastlog.h"
 
+int MyEncData(unsigned char *inData, int inDataLen, unsigned char *outData, int *outDataLen, void *Ref, int RefLen)
+{
+	memcpy(outData, "111111111111111111111111111111111", 10);
+	*outDataLen = 10;
+	return 0;
+}
+
 int main()
 {
 	int ret = 0;
@@ -14,6 +21,12 @@ int main()
 	if (ret != 0)
 	{
 		ITCAST_LOG(__FILE__, __LINE__, LogLevel[4], 0, "err on cltSocketInit()\n");
+		goto End;
+	}
+	ret = clitSocket_setEncFunc(handle, MyEncData, NULL, 0);
+	if (ret != 0)
+	{
+		ITCAST_LOG(__FILE__, __LINE__, LogLevel[4], 0, "err on clitSocket_setEncFunc()\n");
 		goto End;
 	}
 	strcpy(buf, "abcdefghijklmn");
