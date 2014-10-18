@@ -27,6 +27,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EnterpriseCircleList", "Ent
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EnterpriseDLinkedList", "EnterpriseDLinkedList\EnterpriseDLinkedList.vcxproj", "{B1A94496-4ED0-4168-9BE1-5ED219ACBB7E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EnterpriseLinkStack", "EnterpriseLinkStack\EnterpriseLinkStack.vcxproj", "{4F3F33BE-391C-428F-B28F-AA14B998B083}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -81,6 +83,10 @@ Global
 		{B1A94496-4ED0-4168-9BE1-5ED219ACBB7E}.Debug|Win32.Build.0 = Debug|Win32
 		{B1A94496-4ED0-4168-9BE1-5ED219ACBB7E}.Release|Win32.ActiveCfg = Release|Win32
 		{B1A94496-4ED0-4168-9BE1-5ED219ACBB7E}.Release|Win32.Build.0 = Release|Win32
+		{4F3F33BE-391C-428F-B28F-AA14B998B083}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4F3F33BE-391C-428F-B28F-AA14B998B083}.Debug|Win32.Build.0 = Debug|Win32
+		{4F3F33BE-391C-428F-B28F-AA14B998B083}.Release|Win32.ActiveCfg = Release|Win32
+		{4F3F33BE-391C-428F-B28F-AA14B998B083}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
