@@ -92,3 +92,125 @@ int DLinkList_Insert(DLinkList* list, DLinkListNode* node, int pos)
 
 	return 0;
 }
+
+DLinkListNode* DLinkList_Get(DLinkList* list, int pos)
+{
+	TDLinkList *slist = list;
+	if (slist == NULL || pos < 0 || pos >= slist->length)
+	{
+		return NULL;
+	}
+	DLinkListNode *current = NULL;
+	current = (DLinkListNode *)slist;
+	for (int i = 0; i < pos; i++)
+	{
+		current = current->next;
+	}
+	return current->next;
+}
+
+DLinkListNode* DLinkList_Delete(DLinkList* list, int pos)
+{
+	TDLinkList *slist = list;
+	DLinkListNode *ret = NULL;
+	if (slist == NULL || pos < 0 || pos >= slist->length)
+	{
+		return NULL;
+	}
+	DLinkListNode *current = NULL;
+	current = (DLinkListNode *)slist;
+	DLinkListNode *next = NULL;
+	for (int i = 0; i < pos; i++)
+	{
+		current = current->next;
+	}
+	ret = current->next;
+	next = ret->next;
+	current->next = next;
+	if (next != NULL)
+	{
+		next->pre = current;
+
+		if (current == (DLinkListNode *)slist)
+		{
+			next->pre = NULL;
+		}
+	}
+
+	if (slist->slider == ret)
+	{
+		slist->slider = next;
+	}
+	slist->length--;
+	return next;
+
+}
+
+DLinkListNode* DLinkList_DeleteNode(DLinkList* list, DLinkListNode* node)
+{
+	TDLinkList *slist = list;
+	DLinkListNode *ret = NULL;
+	int i;
+	if (slist == NULL || node == NULL)
+	{
+		return NULL;
+	}
+
+	DLinkListNode *current = (DLinkListNode *)slist;
+	for (i = 0; i < slist->length; i++)
+	{
+		if (current->next == node)
+		{
+			ret = current->next;
+			break;
+		}
+		current = current->next;
+	}
+	if (ret != NULL)
+		DLinkList_Delete(slist, i);
+
+	return ret;
+}
+
+DLinkListNode* DLinkList_Reset(DLinkList* list)
+{
+	TDLinkList *slist = list;
+	DLinkListNode *ret = NULL;
+	if (slist == NULL)
+		return NULL;
+	slist->slider = slist->header.next;
+	ret = slist->slider;
+	return ret;
+}
+
+DLinkListNode* DLinkList_Current(DLinkList* list)
+{
+	TDLinkList *slist = list;
+	DLinkListNode *ret = NULL;
+	if (slist == NULL)
+		return NULL;
+	ret = slist->slider;
+	return ret;
+}
+
+DLinkListNode* DLinkList_Next(DLinkList* list)
+{
+	TDLinkList *slist = list;
+	DLinkListNode *ret = NULL;
+	if (slist == NULL || slist->slider == NULL)
+		return NULL;
+	ret = slist->slider;
+	slist->slider = ret->next;
+	return ret;
+}
+
+DLinkListNode* DLinkList_Pre(DLinkList* list)
+{
+	TDLinkList *slist = list;
+	DLinkListNode *ret = NULL;
+	if (slist == NULL || slist->slider == NULL)
+		return NULL;
+	ret = slist->slider;
+	slist->slider = ret->pre;
+	return ret;
+}
