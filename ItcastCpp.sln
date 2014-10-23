@@ -33,6 +33,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StackApplication", "StackAp
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StackExpressionParser", "StackExpressionParser\StackExpressionParser.vcxproj", "{5C285157-3CED-4326-A901-477C8CF66345}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EnterpriseLinkQueue", "EnterpriseLinkQueue\EnterpriseLinkQueue.vcxproj", "{0FD69946-B5B5-45DD-90C8-2BCF0831FC39}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -99,6 +101,10 @@ Global
 		{5C285157-3CED-4326-A901-477C8CF66345}.Debug|Win32.Build.0 = Debug|Win32
 		{5C285157-3CED-4326-A901-477C8CF66345}.Release|Win32.ActiveCfg = Release|Win32
 		{5C285157-3CED-4326-A901-477C8CF66345}.Release|Win32.Build.0 = Release|Win32
+		{0FD69946-B5B5-45DD-90C8-2BCF0831FC39}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0FD69946-B5B5-45DD-90C8-2BCF0831FC39}.Debug|Win32.Build.0 = Debug|Win32
+		{0FD69946-B5B5-45DD-90C8-2BCF0831FC39}.Release|Win32.ActiveCfg = Release|Win32
+		{0FD69946-B5B5-45DD-90C8-2BCF0831FC39}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
