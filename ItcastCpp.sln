@@ -35,6 +35,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StackExpressionParser", "St
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EnterpriseLinkQueue", "EnterpriseLinkQueue\EnterpriseLinkQueue.vcxproj", "{0FD69946-B5B5-45DD-90C8-2BCF0831FC39}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BinaryTree", "BinaryTree\BinaryTree.vcxproj", "{09D73F60-73FA-4A00-8A6B-3046CB0EA033}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -105,6 +107,10 @@ Global
 		{0FD69946-B5B5-45DD-90C8-2BCF0831FC39}.Debug|Win32.Build.0 = Debug|Win32
 		{0FD69946-B5B5-45DD-90C8-2BCF0831FC39}.Release|Win32.ActiveCfg = Release|Win32
 		{0FD69946-B5B5-45DD-90C8-2BCF0831FC39}.Release|Win32.Build.0 = Release|Win32
+		{09D73F60-73FA-4A00-8A6B-3046CB0EA033}.Debug|Win32.ActiveCfg = Debug|Win32
+		{09D73F60-73FA-4A00-8A6B-3046CB0EA033}.Debug|Win32.Build.0 = Debug|Win32
+		{09D73F60-73FA-4A00-8A6B-3046CB0EA033}.Release|Win32.ActiveCfg = Release|Win32
+		{09D73F60-73FA-4A00-8A6B-3046CB0EA033}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
