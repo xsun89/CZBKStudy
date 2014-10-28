@@ -37,6 +37,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EnterpriseLinkQueue", "Ente
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BinaryTree", "BinaryTree\BinaryTree.vcxproj", "{09D73F60-73FA-4A00-8A6B-3046CB0EA033}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sort", "Sort\Sort.vcxproj", "{628E7AD9-DFCE-4007-AA21-B372FDA197E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -111,6 +113,10 @@ Global
 		{09D73F60-73FA-4A00-8A6B-3046CB0EA033}.Debug|Win32.Build.0 = Debug|Win32
 		{09D73F60-73FA-4A00-8A6B-3046CB0EA033}.Release|Win32.ActiveCfg = Release|Win32
 		{09D73F60-73FA-4A00-8A6B-3046CB0EA033}.Release|Win32.Build.0 = Release|Win32
+		{628E7AD9-DFCE-4007-AA21-B372FDA197E0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{628E7AD9-DFCE-4007-AA21-B372FDA197E0}.Debug|Win32.Build.0 = Debug|Win32
+		{628E7AD9-DFCE-4007-AA21-B372FDA197E0}.Release|Win32.ActiveCfg = Release|Win32
+		{628E7AD9-DFCE-4007-AA21-B372FDA197E0}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
